@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
+    background: linear-gradient(to bottom, #e0f7ff, #ffffff);
     margin: 0;
     padding: 0;
     color: #333;
@@ -58,16 +58,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-}
-
-.star-rating {
-    display: inline-flex;
-    margin-left: 10px;
-}
-
-.star {
-    color: #fbbf24;
     font-size: 24px;
 }
 
@@ -139,8 +129,21 @@ body {
     border-radius: 4px;
 }
 
+.questions-list {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+}
+
 .chart-container {
     margin-top: 40px;
+}
+
+.chart-container canvas {
+    max-height: 300px;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -148,7 +151,6 @@ body {
         flex-direction: column;
         text-align: center;
     }
-
     .profile-pic {
         margin-right: 0;
         margin-bottom: 20px;

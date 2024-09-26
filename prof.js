@@ -13,10 +13,27 @@ const professor = {
             averageRating: 4.7,
             medianRating: 5,
             modeRating: 5,
+            questions: [
+                {
+                    question: "Was the content clear?",
+                    averageRating: 4.5,
+                    medianRating: 4,
+                    modeRating: 5
+                },
+                {
+                    question: "Was the professor engaging?",
+                    averageRating: 4.8,
+                    medianRating: 5,
+                    modeRating: 5
+                }
+            ],
             comments: [
                 "Great course, very informative!",
                 "Dr. Smith explains concepts clearly.",
-                "Challenging but rewarding."
+                "Challenging but rewarding.",
+                "Excellent course structure.",
+                "Helps in building a strong foundation.",
+                "More practical examples would be helpful."
             ]
         },
         {
@@ -26,10 +43,30 @@ const professor = {
             averageRating: 4.3,
             medianRating: 4,
             modeRating: 4,
+            questions: [
+                {
+                    question: "Was the content clear?",
+                    averageRating: 4.0,
+                    medianRating: 4,
+                    modeRating: 4
+                },
+                {
+                    question: "Was the professor engaging?",
+                    averageRating: 4.6,
+                    medianRating: 5,
+                    modeRating: 5
+                }
+            ],
             comments: [
                 "Excellent course structure.",
                 "Helps in building a strong foundation.",
-                "More practical examples would be helpful."
+                "More practical examples would be helpful.",
+                "Great course, very informative!",
+                "Dr. Smith explains concepts clearly.",
+                "Challenging but rewarding.",
+                "Great course, very informative!",
+                "Dr. Smith explains concepts clearly.",
+                "Challenging but rewarding."
             ]
         },
         {
@@ -39,12 +76,30 @@ const professor = {
             averageRating: 4.6,
             medianRating: 5,
             modeRating: 5,
+            questions: [
+                {
+                    question: "Was the content clear?",
+                    averageRating: 4.7,
+                    medianRating: 5,
+                    modeRating: 5
+                },
+                {
+                    question: "Was the professor engaging?",
+                    averageRating: 4.5,
+                    medianRating: 5,
+                    modeRating: 5
+                }
+            ],
             comments: [
                 "Challenging but very interesting.",
                 "Dr. Smith's enthusiasm is contagious!",
-                "Great balance of theory and practice."
+                "Great balance of theory and practice.",
+                "Excellent course structure.",
+                "Helps in building a strong foundation.",
+                "More practical examples would be helpful."
             ]
-        }
+        },
+        // Add more courses similarly
     ]
 };
 
@@ -53,7 +108,6 @@ document.getElementById('profName').textContent = professor.name;
 document.getElementById('profDepartment').textContent = professor.department;
 document.getElementById('profPosition').textContent = professor.position;
 document.getElementById('profPic').src = professor.profilePic;
-document.getElementById('overallRating').textContent = professor.overallRating.toFixed(1);
 
 // Create star rating display
 function createStarRating(rating) {
@@ -90,12 +144,19 @@ const closeBtn = document.getElementsByClassName('close')[0];
 
 function openModal(course) {
     document.getElementById('modalCourseName').textContent = course.name;
+    
     const detailsContainer = document.getElementById('modalCourseDetails');
     detailsContainer.innerHTML = `
         <p>Average Rating: ${course.averageRating.toFixed(1)}</p>
         <p>Median Rating: ${course.medianRating}</p>
         <p>Mode Rating: ${course.modeRating}</p>
     `;
+    
+    const questionsList = document.getElementById('questionsList');
+    questionsList.innerHTML = course.questions.map(q => `
+        <p><strong>${q.question}</strong></p>
+        <p>Average: ${q.averageRating.toFixed(1)}, Median: ${q.medianRating}, Mode: ${q.modeRating}</p>
+    `).join('');
     
     const commentsList = document.getElementById('commentsList');
     commentsList.innerHTML = course.comments.map(comment => `<p>${comment}</p>`).join('');
@@ -133,7 +194,8 @@ new Chart(ctx, {
                 beginAtZero: true,
                 max: 5
             }
-        }
+        },
+        maintainAspectRatio: false
     }
 });
 

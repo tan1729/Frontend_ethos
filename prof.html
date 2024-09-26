@@ -22,21 +22,24 @@
                 <h2>Overall Rating</h2>
                 <div class="rating-display">
                     <span id="overallRating">4.5</span>
-                    <div class="star-rating" data-rating="4.5"></div>
                 </div>
             </div>
         </div>
-
         <h2>Current Courses</h2>
         <div id="coursesList" class="courses-grid">
             <!-- Course cards will be dynamically inserted here -->
         </div>
-
         <div id="courseModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2 id="modalCourseName"></h2>
                 <div id="modalCourseDetails"></div>
+                <div class="question-section">
+                    <h3>Question Ratings</h3>
+                    <div id="questionsList" class="questions-list">
+                        <!-- Questions will be dynamically inserted here -->
+                    </div>
+                </div>
                 <div class="comments-section">
                     <h3>Student Comments</h3>
                     <div id="commentsList" class="comments-list">
@@ -45,13 +48,11 @@
                 </div>
             </div>
         </div>
-
         <div class="chart-container">
             <h2>Course Ratings Overview</h2>
             <canvas id="coursesChart"></canvas>
         </div>
     </div>
-
     <script src="prof.js"></script>
 </body>
 </html>
