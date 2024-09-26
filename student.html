@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card profile-card">
+            <div class="card-header">
+                <h2 class="card-title">Student Profile</h2>
+            </div>
+            <div class="card-content">
+                <div class="avatar">
+                    <img src="/api/placeholder/100/100" alt="John Doe" id="profilePic">
+                </div>
+                <div class="profile-info">
+                    <h2 id="studentName">John Doe</h2>
+                    <p>Roll No: <span id="rollNo">CS2023001</span></p>
+                    <p>Department: <span id="department">Computer Science</span></p>
+                    <p>Course: <span id="course">B.Tech</span></p>
+                    <p>Unique ID: <span id="uniqueId">JD2023CS</span></p>
+                    <p>Tokens Received: <span id="tokens" class="tokens">150</span></p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title">Enrolled Courses</h3>
+        <div id="coursesList">
+            <!-- Course cards will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="student.js"></script>
+</body>
+</html>

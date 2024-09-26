@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Dashboard</title>
+    <link rel="stylesheet" href="prof.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card profile-card">
+            <div class="profile-header">
+                <img id="profPic" src="/api/placeholder/150/150" alt="Professor" class="profile-pic">
+                <div class="profile-info">
+                    <h1 id="profName">Dr. Jane Smith</h1>
+                    <p id="profDepartment">Computer Science Department</p>
+                    <p id="profPosition">Associate Professor</p>
+                </div>
+            </div>
+            <div class="overall-rating">
+                <h2>Overall Rating</h2>
+                <div class="rating-display">
+                    <span id="overallRating">4.5</span>
+                    <div class="star-rating" data-rating="4.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Current Courses</h2>
+        <div id="coursesList" class="courses-grid">
+            <!-- Course cards will be dynamically inserted here -->
+        </div>
+
+        <div id="courseModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalCourseName"></h2>
+                <div id="modalCourseDetails"></div>
+                <div class="comments-section">
+                    <h3>Student Comments</h3>
+                    <div id="commentsList" class="comments-list">
+                        <!-- Comments will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Course Ratings Overview</h2>
+            <canvas id="coursesChart"></canvas>
+        </div>
+    </div>
+
+    <script src="prof.js"></script>
+</body>
+</html>

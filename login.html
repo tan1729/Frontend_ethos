@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Feedback dApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="login-selection">
+            <button onclick="showLogin('student')">Student</button>
+            <button onclick="showLogin('professor')">Professor</button>
+            <button onclick="showLogin('admin')">Admin</button>
+        </div>
+        <div id="login-forms">
+            <div id="student-login" class="login-form hidden">
+                <h2>Student Login</h2>
+                <input type="text" placeholder="Webmail" id="student-webmail" required>
+                <input type="password" placeholder="Password" id="student-password" required>
+                <button onclick="studentLogin()">Login</button>
+                <p id="student-message" class="message"></p>
+            </div>
+            <div id="professor-login" class="login-form hidden">
+                <h2>Professor Login</h2>
+                <input type="text" placeholder="Webmail" id="professor-webmail" required>
+                <input type="password" placeholder="Password" id="professor-password" required>
+                <button onclick="professorLogin()">Login</button>
+                <p id="professor-message" class="message"></p>
+            </div>
+            <div id="admin-login" class="login-form hidden">
+                <h2>Admin Login</h2>
+                <input type="text" placeholder="Username" id="admin-username" required>
+                <input type="password" placeholder="Password" id="admin-password" required>
+                <button onclick="adminLogin()">Login</button>
+                <p id="admin-message" class="message"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
