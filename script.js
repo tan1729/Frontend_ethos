@@ -1,49 +1,45 @@
 function showLogin(userType) {
+    // Hide all login forms first
     document.querySelectorAll('.login-form').forEach(form => {
         form.classList.add('hidden');
     });
 
+    // Show the selected login form
     const selectedForm = document.getElementById(`${userType}-login`);
     selectedForm.classList.remove('hidden');
 }
 
 async function login(userType) {
+    // Get the correct input fields for webmail/username and password
     const webmailOrUsername = document.getElementById(userType === 'admin' ? 'admin-username' : `${userType}-webmail`).value;
     const password = document.getElementById(`${userType}-password`).value;
     const messageElement = document.getElementById(`${userType}-message`);
 
     try {
-        const response = await fetch(`/login/${userType}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 
-                [userType === 'admin' ? 'username' : 'webmail']: webmailOrUsername, 
-                password 
-            }),
-        });
-
-        console.log(`Response status: ${response.status}`); // Log response status
-        const data = await response.json();
-        console.log(data); // Log response data
-
-        if (response.ok) {
-            messageElement.textContent = data.message;
+        // Simulate login (replace this with your actual fetch logic to the backend)
+        if (webmailOrUsername && password) {
+            // Assuming successful login simulation, set a success message
+            messageElement.textContent = 'Login successful!';
             messageElement.style.color = 'green';
-            // Redirect or update UI for successful login
+
+            // Redirect based on the userType to their respective pages
+            if (userType === 'student') {
+                window.location.href = 'student.html'; // Redirect to the student's page
+            } else if (userType === 'professor') {
+                window.location.href = 'prof.html'; // Redirect to the professor's page
+            } else if (userType === 'admin') {
+                window.location.href = 'admin.html'; // Redirect to the admin's page
+            }
         } else {
-            messageElement.textContent = data.message || 'Login failed. Please try again.';
+            // Handle validation failure
+            messageElement.textContent = 'Please enter valid credentials.';
             messageElement.style.color = 'red';
         }
     } catch (error) {
         console.error('Login error:', error);
-        messageElement.textContent = 'An error occurred. Please check the console and try again.';
+        messageElement.textContent = 'An error occurred. Please try again.';
         messageElement.style.color = 'red';
     }
-
-    // Redirect to a new page after the login attempt (success or failure)
-    window.location.href = 'prof.html'; // Replace '/dashboard' with the actual target page
 }
 
 function studentLogin() {
